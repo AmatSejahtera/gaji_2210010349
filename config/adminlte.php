@@ -333,6 +333,11 @@ return [
             'route' => 'pengguna.index',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'Jabatan',
+            'route' => 'jabatan.index',
+            'icon' => 'fas fa-fw fa-star',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -436,7 +441,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
