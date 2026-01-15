@@ -100,4 +100,13 @@ class JabatanController extends Controller
         Alert::success('Sukses', 'Berhasil Menghapus Jabatan');
         return redirect()->route('jabatan.index');
     }
+
+    public function printPdf()
+{
+    $jabatan = Jabatan::all();
+
+    $pdf = PDF::loadView('masterdata.jabatan._pdf', compact('jabatan'));
+    $pdf->setPaper('A4', 'landscape');
+    return $pdf->stream('Data Gaji.pdf', array("Attachment" => false));
+}
 }
