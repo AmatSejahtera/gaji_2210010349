@@ -338,6 +338,11 @@ return [
             'route' => 'jabatan.index',
             'icon' => 'fas fa-fw fa-star',
         ],
+        [
+            'text' => 'Jabatan Karyawan',
+            'route' => 'jabatan-karyawan.index',
+            'icon' => 'fas fa-fw fa-user-tie',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
