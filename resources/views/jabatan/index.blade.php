@@ -14,6 +14,11 @@
                     <h2 class="card-title"><strong>Table Data Jabatan</strong></h2>
                     <a href="{{ route('jabatan.create') }}" class="btn btn-primary btn-md float-right"> Tambah Jabatan</a>
                 </div>
+                <div class="card-header text-right">
+                    <a href="{{ route('print.jabatan') }}" class="btn btn-success btn-md"> Print Jabatan</a>
+                    <a href="{{ route('grafik.jabatan') }}" class="btn btn-danger btn-md"> Grafik Jabatan</a>
+                    <a href="{{ route('export.excel') }}" class="btn btn-info btn-md"> Export Excel</a>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="jabatanTable" class="table table-bordered table-striped table-hover">
@@ -66,17 +71,20 @@
                 "lengthChange": true,
                 "autoWidth": false,
                 "pageLength": 10,
-                "lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]],
-                "order": [[0, 'asc']],
+                "lengthMenu": [
+                    [10, 25, 50, 100],
+                    [10, 25, 50, 100]
+                ],
+                "order": [
+                    [0, 'asc']
+                ],
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Indonesian.json"
                 },
-                "columnDefs": [
-                    {
-                        "orderable": false,
-                        "targets": 5
-                    }
-                ]
+                "columnDefs": [{
+                    "orderable": false,
+                    "targets": 5
+                }]
             });
         });
     </script>

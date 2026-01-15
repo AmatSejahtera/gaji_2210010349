@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -105,8 +106,28 @@ class JabatanController extends Controller
 {
     $jabatan = Jabatan::all();
 
-    $pdf = PDF::loadView('masterdata.jabatan._pdf', compact('jabatan'));
+    $pdf = Pdf::loadView('jabatan._pdf', compact('jabatan'));
     $pdf->setPaper('A4', 'landscape');
     return $pdf->stream('Data Gaji.pdf', array("Attachment" => false));
 }
+public function grafikJabatan()
+{
+    return view('jabatan.chart');
+}
+
+public function getGrafik()
+{
+    $jabatan = Jabatan::select('nama_jabatan', 'gapok_jabatan')->get();
+    return response()->json([
+        'data' => $jabatan
+    ]);
+}
+
+public function exportExcel()
+{
+    $jabatan = Jabatan::all();
+
+    return view('jabatan._excel', compact('jabatan'));
+}
+
 }
